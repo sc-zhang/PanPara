@@ -58,7 +58,10 @@ def run_mcscanx(bed1, bed2, blast1, blast2, out_dir):
     print("Running MCScanX")
     cmd = "MCScanX "+m_pre
     print("\tRunning: %s"%cmd)
-    os.system(cmd)
+    ret = os.system(cmd)
+    if ret != 0:
+        print("Fatal error, MCScanX failed")
+        exit(-1)
 
     col_file = m_pre+".collinearity"
     col_db = {}

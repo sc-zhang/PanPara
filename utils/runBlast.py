@@ -30,10 +30,15 @@ def run_blast(qry, ref, prog, evalue, fmt, num_aln, out_blast, threads):
     blast_cmd = "%s -query %s -db blastdb -out %s -evalue %s -outfmt %s %s -num_threads %s &> blast.log"%(prog, qry, out_blast, evalue, fmt, num_aln_cmd, threads)
 
     print("Running makeblastdb: %s"%idx_cmd)
-    os.system(idx_cmd)
+    ret = os.system(idx_cmd)
+    if ret != 0:
+        print("Fatal error, makeblastdb failed")
+        exit(-1)
     print("Running blast: %s"%blast_cmd)
-    os.system(blast_cmd)
-
+    ret = os.system(blast_cmd)
+    if ret != 0:
+        print("Fatal error, blast failed")
+        exit(-1)
     print("Finished")
 
 

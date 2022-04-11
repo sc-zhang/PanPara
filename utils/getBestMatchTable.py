@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 import argparse
 import os
-import sys
 from .UnionFind import UnionFind
 from .runMCscanX import run_mcscanx
 
@@ -48,7 +47,7 @@ def get_best_match_table(bed1, bed2, tbl, blast, blast2, iden_threshold, cov_thr
     # Self compare is only used for construct first reference
     if is_self and tbl != "":
         print("Fatal error, cannot append infomations to self compare")
-        sys.exit(-1)
+        exit(-1)
     # Sorted gene with position, and generate index dict, length dict
     print("Loading bed1")
     bed_db1 = {}
@@ -154,7 +153,7 @@ def get_best_match_table(bed1, bed2, tbl, blast, blast2, iden_threshold, cov_thr
     # If tbl is null, means here is the first time to construct paralog table
     if tbl == "" and (not is_self):
         print("Fatal error, if not self comparison, must afford table constructed by self comparison")
-        sys.exit(-1)
+        exit(-1)
     if is_self:
         with open(outfile, 'w') as fout:
             with open(new_ref, 'w') as fref:
