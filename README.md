@@ -8,7 +8,7 @@ PanPara is a tool for identifying paralog genes with pan-genome.
 
 ## Usage
 ```bash
-usage: PanPara.py [-h] -l LIST -s CDS -b BED [-d IDEN] [-c COVERAGE] -o OUTPUT [-t THREAD]
+usage: panpara.py [-h] -l LIST -s CDS -b BED [-d IDEN] [-c COVERAGE] -o OUTPUT [-t THREAD]
 
 options:
   -h, --help            show this help message and exit
