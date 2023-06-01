@@ -1,4 +1,4 @@
-class UnionFind:
+class union_find:
     def __init__(self, n):
         self._f = [_ for _ in range(n)]
     
